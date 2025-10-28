@@ -5,3 +5,4 @@ With this plugin, you can customize your server’s dead messages with YOUR mess
 
 Take this opportunity!
 
+Full Plugin : https://modrinth.com/plugin/customdeathmessage
