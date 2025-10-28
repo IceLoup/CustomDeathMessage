@@ -19,16 +19,3 @@ public class ReloadCommand implements CommandExecutor {
         return true;
     }
 }
-
-// N'oublie pas d'enregistrer la commande dans ton onEnable() :
-// getCommand("reloaddeathmessages").setExecutor(new ReloadDeathMessagesCommand());
-
-// Et d'ajouter dans ton plugin.yml :
-/*
-commands:
-  reloaddeathmessages:
-    description: Recharge les messages de mort personnalisés
-    usage: /<command>
-    permission: deathmessage.reload
-    permission-message: Tu n'as pas la permission d'utiliser cette commande.
-*/
