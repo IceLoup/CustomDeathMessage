@@ -10,27 +10,23 @@ import static org.bukkit.Bukkit.getServer;
 
 public final class CustomDeathMessage extends JavaPlugin {
 
-    // À ajouter dans ta classe Main lors du onEnable()
-
     @Override
     public void onEnable() {
-        // Setup du fichier de configuration
+        
         DeathMessage.setup();
 
-        // Charger les valeurs par défaut si le fichier est vide
         if (DeathMessage.get().getKeys(false).isEmpty()) {
             loadDefaultMessages();
             DeathMessage.save();
         }
 
-        // Enregistrer le listener
         getServer().getPluginManager().registerEvents(new xyz.pyxismc.pyxis.listeners.PlayerDeathListeners(), this);
     }
 
     private void loadDefaultMessages() {
         FileConfiguration config = DeathMessage.get();
 
-        // Messages PvP
+        // PVP MESSAGES
         config.set("death-messages.pvp", Arrays.asList(
                 "§c☠ %victim% §7was obliterated by §a\uD83D\uDDE1 %killer%",
                 "§c☠ %victim% §7got rekt by §a\uD83D\uDDE1 %killer%",
@@ -44,7 +40,7 @@ public final class CustomDeathMessage extends JavaPlugin {
                 "§c☠ %victim% §7was no match for §a\uD83D\uDDE1 %killer%"
         ));
 
-        // Messages de chute
+        // FALL MESSAGES
         config.set("death-messages.fall", Arrays.asList(
                 "§c☠ %player% §7forgot gravity exists",
                 "§c☠ %player% §7tested fall damage... it works",
@@ -58,7 +54,7 @@ public final class CustomDeathMessage extends JavaPlugin {
                 "§c☠ %player% §7missed the water bucket"
         ));
 
-        // Messages de noyade
+        // DROWN MESSAGES
         config.set("death-messages.drown", Arrays.asList(
                 "§c☠ %player% §7slept with the fishes",
                 "§c☠ %player% §7forgot their swimming lessons",
@@ -72,7 +68,7 @@ public final class CustomDeathMessage extends JavaPlugin {
                 "§c☠ %player% §7skipped swimming class"
         ));
 
-        // Messages de feu
+        // FIRE MESSAGES
         config.set("death-messages.burn", Arrays.asList(
                 "§c☠ %player% §7became extra crispy",
                 "§c☠ %player% §7was well done",
@@ -86,7 +82,7 @@ public final class CustomDeathMessage extends JavaPlugin {
                 "§c☠ %player% §7was cooked to perfection"
         ));
 
-        // Messages d'explosion
+        // EXPLOSION MESSAGES
         config.set("death-messages.explosion", Arrays.asList(
                 "§c☠ %player% §7went boom",
                 "§c☠ %player% §7was blown to pieces",
@@ -97,7 +93,7 @@ public final class CustomDeathMessage extends JavaPlugin {
                 "§c☠ %player% §7discovered TNT the hard way"
         ));
 
-        // Messages génériques
+        // GENERIC MESSAGES
         config.set("death-messages.generic", Arrays.asList(
                 "§c☠ %player% §7died of natural causes (totally)",
                 "§c☠ %player% §7has left the game... permanently",
@@ -111,7 +107,7 @@ public final class CustomDeathMessage extends JavaPlugin {
                 "§c☠ %player% §7has disconnected from life"
         ));
 
-        // Configuration de la notification de kill
+        // KILL NOTIFICATION
         config.set("kill-notification.sound.enabled", true);
         config.set("kill-notification.sound.type", "BLOCK_NOTE_BLOCK_HARP");
         config.set("kill-notification.sound.volume", 1.0);
