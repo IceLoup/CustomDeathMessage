@@ -1,0 +1,7 @@
+name: CustomDeathMessage
+version: '1.0-SNAPSHOT'
+main: xyz.pyxismc.customDeathMessage.CustomDeathMessage
+api-version: '1.21'
+authors: [ IceLoup ]
+description: CustomDeathMessage plugin
+website: https://pyxismc.xyz
