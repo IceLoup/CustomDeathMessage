@@ -19,7 +19,7 @@ public class PlayerDeathListeners implements Listener {
         Player player = e.getEntity();
         Player killer = player.getKiller();
 
-        // Si tué par un autre joueur
+        // IF KILLED
         if (killer != null) {
             List<String> pvpMessages = DeathMessage.get().getStringList("death-messages.pvp");
             if (!pvpMessages.isEmpty()) {
@@ -29,7 +29,7 @@ public class PlayerDeathListeners implements Listener {
                 e.setDeathMessage(message);
             }
         }
-        // Mort naturelle
+        // NATURAL DEATH
         else {
             String cause = e.getDeathMessage();
             String message = null;
@@ -77,13 +77,12 @@ public class PlayerDeathListeners implements Listener {
         Player player = e.getEntity();
         Player killer = player.getKiller();
 
-        // Afficher le titre au tueur
+        // TITLE 
         if (killer != null) {
-            // Vérifier si le son et le titre sont activés
+            
             boolean soundEnabled = DeathMessage.get().getBoolean("kill-notification.sound.enabled", true);
             boolean titleEnabled = DeathMessage.get().getBoolean("kill-notification.title.enabled", true);
 
-            // Jouer le son
             if (soundEnabled) {
                 String soundName = DeathMessage.get().getString("kill-notification.sound.type", "BLOCK_NOTE_BLOCK_HARP");
                 float volume = (float) DeathMessage.get().getDouble("kill-notification.sound.volume", 1.0);
@@ -97,7 +96,7 @@ public class PlayerDeathListeners implements Listener {
                 }
             }
 
-            // Envoyer le titre
+            // TITLE SEND
             if (titleEnabled) {
                 String titleFormat = DeathMessage.get().getString("kill-notification.title.format", "§8[§c \uD83D\uDDE1 §8-§c %victim% §8]");
                 String titleText = titleFormat.replace("%victim%", player.getName())
@@ -112,3 +111,4 @@ public class PlayerDeathListeners implements Listener {
         }
     }
 }
+
